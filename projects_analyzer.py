@@ -34,7 +34,7 @@ class Mastery:
    
    #____Analysis with folder____#
 
-   for (path, ficheros, archivos) in walk("/home/angela/Escritorio/drScratch/ProyectosGregorio/projects_2"):
+   for (path, ficheros, archivos) in walk("/home/angela/Escritorio/drScratch/ProyectosGregorio/projects_9"):
      if self.total_projects_id == 0:
        self.total_projects_id = len(ficheros)
      for json_project in archivos:
@@ -46,7 +46,7 @@ class Mastery:
   def analyze(self):
 
     #Create the Excel
-    workbook = xlsxwriter.Workbook('results_3.xlsx')			
+    workbook = xlsxwriter.Workbook('results_parte9.xlsx')			
     worksheet = workbook.add_worksheet()
     worksheet_2 = workbook.add_worksheet()
 
@@ -95,7 +95,7 @@ class Mastery:
 
       total_projects = total_projects + 1
 
-      print path_file
+      print str(total_projects) + " : " + path_file
       file_name = path_file.split("/")[-1]
       project_id = file_name.split("_")[0]
       p = file_name.split("_")[1:]
@@ -189,7 +189,7 @@ class Mastery:
            result += "\n"
          worksheet.write(row, 16, result)
         except:
-         worksheet.write(row, 16, "")
+         worksheet.write(row, 16, "[]")
 
 
         #Total number of duplicate scripts
@@ -202,15 +202,17 @@ class Mastery:
 
         #Dead code
         lines = resultDeadCode.split(".sb2")
-        dead_code = ast.literal_eval(lines[1])
+        is_deadCode = False
         try:
+         dead_code = ast.literal_eval(lines[1])
+         is_deadCode = True
          worksheet.write(row, 18, str(dead_code))
         except:
-         worksheet.write(row, 18, "")
+         worksheet.write(row, 18, "[]")
 
 
         #Total blocks of dead code
-        if len(dead_code) == 0:
+        if is_deadCode == False:
             worksheet.write(row, 19, "0")            
         else:
             worksheet.write(row, 19, len(resultDeadCode.split(",")))
