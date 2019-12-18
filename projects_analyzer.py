@@ -17,7 +17,7 @@ class Mastery:
 
 
   """Start the analysis."""
-  def process(self,filename):
+  def process(self):
 
    #_____Analysis with zip____#
 
@@ -31,10 +31,12 @@ class Mastery:
       if len(files) == 9 and files[-1] != "last.json":
         self.total_projects.append(json_project)
    """
+
+   folder_path = "path/to/the/projects"
    
    #____Analysis with folder____#
 
-   for (path, ficheros, archivos) in walk("/home/angela/Escritorio/drScratch/ProyectosGregorio/projects_9"):
+   for (path, ficheros, archivos) in walk(folder_path):
      if self.total_projects_id == 0:
        self.total_projects_id = len(ficheros)
      for json_project in archivos:
@@ -46,7 +48,7 @@ class Mastery:
   def analyze(self):
 
     #Create the Excel
-    workbook = xlsxwriter.Workbook('results_parte9.xlsx')			
+    workbook = xlsxwriter.Workbook('results.xlsx')			
     worksheet = workbook.add_worksheet()
     worksheet_2 = workbook.add_worksheet()
 
@@ -299,7 +301,7 @@ def main():
 
     mastery = Mastery()
     #With zip
-    mastery.process(sys.argv[1])
+    mastery.process()
     mastery.analyze()
 
 
