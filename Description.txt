@@ -1,0 +1,57 @@
+
+Description of the columns:
+
+
+
+- Abstraction	Parallelization	Logic	Synchronization	FlowControl	UserInteractivity	DataRepresent:
+
+ 				7 categories that drScratch analyzes. The score of each category is from 0 to 3.
+
+
+- TotalMastery:
+
+					Total points of the project. It's the sum of the seven categories (from 0 to 21 points).
+
+
+- Level: 
+
+					Mastery points: Basic (0/7), Developing (7/15), Proficiency (15,21)
+
+
+- DefaultSpriteNames TotalDefaultNames:
+
+     Objects in the project that have the default name (For example: Sprite 1, Sprite 2 instead of 'Ball') and the total number.
+
+- SpriteNames TotalSprites:
+			
+					List of Sprites (Objects) in the project and the total number.
+
+
+- DuplicateScripts	TotalDupScripts:
+
+					Set of blocks that are repeated in the script and the total number.
+
+
+- DeadCode	TotalBlocksDeadCode:
+
+     Blocks that are isolated and never activated in the script, and the total number.
+
+
+- AttributeInitialization	TotalAttributeInitialization:
+
+     Attributes of an object that are not correctly initialized (For example: if you move an object and don't initialize its position first),
+     and the total number.
+
+
+- Block Count	TotalBlocks:
+
+					Blocks that count for the score and the total number.
+
+
+
+
+
+
+
+
+
